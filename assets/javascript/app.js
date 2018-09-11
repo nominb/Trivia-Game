@@ -1,6 +1,6 @@
 $(document).ready(function(){
     //this is where timer variables are
-    var timerAmount = 40;
+    var countDown = 40;
 
     //user score
     var numRight = 0;
@@ -17,40 +17,40 @@ $(document).ready(function(){
             question: "Which friend had won a vanilla ice look-alike contest?",
             correct: 2,
             choice: ["Monica", "Chandler", "Ross", "Joey"]
-        }
+        },
         q2 = {
             question: "Which friend made candy to gegt to know their neighbors?",
-            correct: 1
+            correct: 1,
             choice: ["Monica", "Chandler", "Ross", "Joey"]
-        }
+        },
         q3 = {
             question: "Which friend kissed Chandler's mom?",
-            correct: 3
+            correct: 3,
             choice: ["Monica", "Chandler", "Ross", "Joey"]
-        }
+        },
         q4 = {
             question: "Which friend teaches Ben about practical jokes?",
-            correct: 4
+            correct: 4,
             choice: ["Monica", "Chandler", "Ross", "Rachel"]
-        }
+        },
         q5 = {
             question: "Who kissed Chandler's mom?",
-            correct: 3
+            correct: 3,
             choice: ["Monica", "Chandler", "Ross", "Joey"]
-        }
+        },
         q6 = {
             question: "Which friend was shot in the butt  by a tranquilizer dart?",
-            correct: 3
+            correct: 3,
             choice: ["Monica", "Chandler", "Pheobe", "Joey"]
-        }
+        },
         q7= {
             question: "Which friend did not go to high school?",
-            correct: 4
+            correct: 4,
             choice: ["Monica", "Chandler", "Ross", "Joey"]
-        }
+        },
         q8 = {
             question: "Which friend got married three times",
-            correct: 3
+            correct: 3,
             choice: ["Monica", "Chandler", "Ross", "Joey"]
         }
     ];
@@ -60,7 +60,7 @@ $(document).ready(function(){
         if (currentQ <=8) {
             $("#questionDiv").html("<h2>" + questions[currentQ].question + "</h2>");
             answers = questions[currentQ].choice;
-            show(".answers");
+            $(".asnwers").show();
             for (var i=0; i<answers.length; i++) {
                 $("answer"+ i).html("<h2>" + answers[i] + "</h2>");
             }
@@ -75,7 +75,7 @@ $(document).ready(function(){
         for(var i=0; i<4; i++) {
             $("#answersDiv" + i).append ("");
         }
-        hide (".answer");
+        $(".answer").hide();
     };
     //Timer function 
     var start = function() {
@@ -84,7 +84,7 @@ $(document).ready(function(){
         //clear timer
         $("#startTimer").empty();
         //hide start button
-        hide("#start");
+        $("#start").hide();
         //question and answers
         triviaQuestions();
         
@@ -120,16 +120,16 @@ $(document).ready(function(){
          answers = [];
          userContent ();
          $("#timerContainer").empty();
-         trivia ("#startTimer", "Press to Begin!");
-         show ("#start");
-         hide ("#reset");
+         trivia("#startTimer", "Press to Begin!");
+         $("#start").show();
+         $("#reset").hide();
      };
 
      var endGame = function () {
          stop();
          userContent();
 //display when game is over
-        trivia ("#startTimer", "<h2> Game Donzo!<h2>");
+        trivia("#startTimer", "<h2> Game Donzo!<h2>");
         $("#userScore").append("<h2> Results!</h2>");
         $("#userScore").append("<h2> Total Questions Answered:" + numAnswered + "</h2>");
         $("#userScore").append("<h2> Correct Answers: " + numRight + "</h2>");
